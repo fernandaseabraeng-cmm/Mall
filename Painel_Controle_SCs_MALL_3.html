@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel de Controle de SCs — MALL PARTICIPAÇÕES (6012)</title>
+<style>
+:root{--navy:#1B2C4E;--coral:#F15E40;--blue:#2F5CA8;--green:#23A45B;--bg:#EBEEF4;--muted:#64748B;--line:#E6EAF1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Nunito,Arial,sans-serif;background:var(--bg);color:#1B2C4E;padding:22px;font-size:14px}
+.wrap{max-width:1300px;margin:0 auto}
+header{background:var(--navy);color:#fff;border-radius:16px;padding:22px 28px;box-shadow:0 6px 20px rgba(27,44,78,.18);border-bottom:5px solid var(--coral)}
+header h1{font-size:19px;font-weight:800;letter-spacing:.2px;line-height:1.2} header h1 b{color:var(--coral)}
+header p{opacity:.85;font-size:12.5px;margin-top:5px}
+.fbands{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 0}
+.fcard{flex:1;min-width:200px;background:#fff;border-radius:12px;padding:13px 16px;box-shadow:0 2px 10px rgba(27,44,78,.06);border-left:5px solid var(--coral)}
+.fcard .ft{font-weight:800;color:var(--navy);font-size:13.5px} .fcard .fs{font-weight:600;color:var(--muted);font-size:12px;margin-top:3px}
+.fcard.b{border-left-color:var(--blue)} .fcard.g{border-left-color:var(--green)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.kpi{background:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 2px 10px rgba(27,44,78,.06);border-top:4px solid var(--coral)}
+.kpi .n{font-size:30px;font-weight:800;line-height:1;color:var(--navy)} .kpi .l{font-size:12px;color:var(--muted);margin-top:6px}
+.kpi.p{border-top-color:#E8A33D} .kpi.p .n{color:#D98A22}
+.kpi.a{border-top-color:var(--green)} .kpi.a .n{color:var(--green)}
+.kpi.b{border-top-color:var(--blue)} .kpi.b .n{color:var(--blue)}
+.card{background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(27,44,78,.06);margin-bottom:20px;overflow:hidden}
+.card h2{background:#fff;color:var(--navy);font-size:14.5px;font-weight:800;padding:14px 20px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:10px}
+.card h2::before{content:"";width:9px;height:20px;background:var(--coral);border-radius:3px;display:inline-block}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+td.sc{font-weight:800;color:var(--navy);white-space:nowrap}
+td.ctr{text-align:center} td.det{font-size:12.5px;color:#33414f;line-height:1.5}
+tr.rowsc{cursor:pointer} tr.rowsc:hover{background:#F5F7FB}
+td.exp{width:26px;text-align:center;color:var(--coral);font-weight:800;font-size:16px}
+.fase{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;background:#E7ECF6;color:var(--navy);white-space:nowrap}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.tag.mat{background:#DEE8F7;color:var(--blue)} .tag.serv{background:#FBE0D8;color:#B4472B}
+.st{display:inline-block;padding:4px 11px;border-radius:8px;font-size:11px;font-weight:800;white-space:nowrap}
+.st.pend{background:#FCEBCE;color:#96650B} .st.apr{background:#D6F0E1;color:#127A44} .st.rep{background:#FBD9D2;color:#B23A22}
+.drow>td{background:#FAFBFD;padding:0;border-bottom:2px solid var(--line)}
+.detail{padding:16px 20px}
+.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.detail h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--navy);margin:2px 0 8px;font-weight:800} h3.mt{margin-top:14px}
+ol.aj{margin:0 0 0 18px;padding:0} ol.aj li{margin:6px 0;font-size:13px;line-height:1.55;color:#33414f}
+ul.good{margin:0;padding:0;list-style:none} ul.good li{margin:6px 0;font-size:12.5px;color:#127A44;position:relative;padding-left:16px}
+ul.good li::before{content:"✔";position:absolute;left:0;color:#23A45B;font-weight:800}
+.mtx table{width:100%;border-collapse:collapse} .mtx td.itn{font-size:12px;font-weight:600;color:#33414f;border:1px solid var(--line);padding:7px 9px}
+td.mc{text-align:center;font-weight:800;width:46px;border:1px solid var(--line)}
+.mok{background:#D6F0E1;color:#127A44} .mno{background:#FBD9D2;color:#B0170A} .mna{background:#EEF1F5;color:#8a8a8a}
+.meta{margin-top:12px;font-size:12px;color:#33414f;line-height:1.7;background:#F5F7FB;border-radius:8px;padding:10px 12px}
+.toolbar{background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(27,44,78,.06);padding:15px 20px;margin:20px 0;display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+.toolbar input[type=text]{flex:1;min-width:220px;padding:10px 13px;border:1px solid #d3dae2;border-radius:10px;font-size:13px;font-family:inherit}
+.toolbar input[type=text]:focus{outline:none;border-color:var(--navy)}
+.fgroup{display:flex;gap:6px;flex-wrap:wrap;align-items:center} .fgroup .lbl{font-size:11px;color:var(--muted);margin-right:2px;font-weight:700}
+.chip{padding:7px 13px;border:1px solid #d3dae2;border-radius:20px;font-size:12px;font-weight:700;background:#fff;color:#33414f;cursor:pointer;user-select:none}
+.chip:hover{border-color:var(--navy)} .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.count{font-size:12px;color:var(--muted);margin-left:auto} .count b{color:var(--navy)}
+.aprbox{background:#D6F0E1;color:#127A44;font-weight:800;font-size:13px;border-radius:8px;padding:11px 13px;border-left:4px solid var(--green)}
+.nodata{padding:18px;text-align:center;color:#96650B;font-size:13px;font-weight:700} .hide{display:none}
+.foot{font-size:11.5px;color:var(--muted);padding:13px 20px;line-height:1.6}
+</style></head><body><div class="wrap">
+<header><div class="htxt">
+<h1>Painel de Controle de Solicitações de Compra — <b>MALL PARTICIPAÇÕES (6012)</b></h1>
+<p>Obra nova · Passeio Reserva Inglesa – Lote 1 / Sameiro · atualizado a cada SC · Custo por Nível não gerado (obra nova)</p>
+</div></header>
+
+<div class="fbands"><div class="fcard "><div class="ft">Fase 1 · Obra 6012</div><div class="fs">Passeio Reserva Inglesa – Lote 1 / Sameiro</div></div></div>
+
+<div class="kpis">
+<div class="kpi"><div class="n">5</div><div class="l">SCs analisadas</div></div>
+<div class="kpi p"><div class="n">2</div><div class="l">Pendentes / a ajustar</div></div>
+<div class="kpi a"><div class="n">3</div><div class="l">Aprovadas</div></div>
+<div class="kpi b"><div class="n">0 / 5</div><div class="l">Material / Serviço</div></div>
+</div>
+
+<div class="toolbar">
+<input id="q" type="text" placeholder="Buscar por nº da SC, objeto ou ajuste…" oninput="applyF()">
+<div class="fgroup"><span class="lbl">Status:</span>
+<span class="chip on" data-f="st" data-v="all" onclick="pick(this)">Todas</span>
+<span class="chip" data-f="st" data-v="apr" onclick="pick(this)">Aprovadas</span>
+<span class="chip" data-f="st" data-v="pend" onclick="pick(this)">Pendentes</span></div>
+<div class="fgroup"><span class="lbl">Tipo:</span>
+<span class="chip on" data-f="tp" data-v="all" onclick="pick(this)">Todos</span>
+<span class="chip" data-f="tp" data-v="mat" onclick="pick(this)">Material</span>
+<span class="chip" data-f="tp" data-v="serv" onclick="pick(this)">Serviço</span></div>
+<div class="fgroup"><span class="lbl">Fase:</span>
+<span class="chip on" data-f="fa" data-v="all" onclick="pick(this)">Todas</span>
+<span class="chip" data-f="fa" data-v="1" onclick="pick(this)">F1</span>
+<span class="chip" data-f="fa" data-v="2" onclick="pick(this)">F2</span>
+<span class="chip" data-f="fa" data-v="3" onclick="pick(this)">F3</span></div>
+<div class="fgroup"><span class="lbl">Responsável:</span><span class="chip on" data-f="rp" data-v="all" onclick="pick(this)">Todos</span><span class="chip" data-f="rp" data-v="bruno-de-lucas-ferreira-leite" onclick="pick(this)">Bruno de Lucas Ferreira Leite</span></div>
+<span class="count" id="cnt"></span>
+</div>
+
+<div class="card"><h2>Solicitações e ajustes — clique na linha para ver o detalhe</h2>
+<table><thead><tr><th></th><th>SC</th><th>Fase</th><th>Objeto</th><th>Tipo</th><th>Status</th><th>Detalhamento</th></tr></thead>
+<tbody>
+<tr class="rowsc" data-sc="1398881" data-st="apr" data-tp="serv" data-fa="1" data-resp="bruno-de-lucas-ferreira-leite" data-text="1398881 terraplanagem servico fase 1 aprovada apropriacao 02.001.001.001 bruno" onclick="toggle(this)">
+<td class="exp">+</td><td class="sc">1398881</td><td><span class="fase">F1</span></td>
+<td>Terraplanagem — limpeza, corte, aterro e demolição (SET–NOV/26).</td><td class="ctr"><span class="tag serv">Serviço</span></td>
+<td class="ctr"><span class="st apr">APROVADA</span></td><td class="det">Aprovada — ajustes da revisão resolvidos e conferidos.</td></tr>
+<tr class="drow hide" data-for="1398881"><td colspan="7"><div class="detail"><div class="grid2">
+<div><div class="aprbox">✔ SC aprovada — sem ajustes.</div><h3 class="mt">Já está ok</h3><ul class="good"><li>Volumes conferem com o projeto (aterro×1,30 = empréstimo 27.855 + corte 3.160 reaproveitado; sem dupla contagem).</li><li>Apropriação 02.001.001.001; unidades e QC batem com a SC.</li><li>Correções da 1ª análise conferidas: 18991 → 27.855 m³ · 17374 → vb · memorial → 02.001.001.001.</li></ul></div>
+<div><h3>Matriz dos itens</h3><div class="mtx"><table><tbody><tr><td class="itn">1. SC c/ códigos novos</td><td class="mc mok">✔</td></tr><tr><td class="itn">2. Descrição dos insumos</td><td class="mc mok">✔</td></tr><tr><td class="itn">3. Qtd e unidade</td><td class="mc mok">✔</td></tr><tr><td class="itn">4. Apropriações corretas</td><td class="mc mok">✔</td></tr><tr><td class="itn">5. Levantamento</td><td class="mc mok">✔</td></tr><tr><td class="itn">6. Escopo detalhado</td><td class="mc mok">✔</td></tr><tr><td class="itn">7. QC × custo por nível</td><td class="mc mna">N/A</td></tr><tr><td class="itn">8. Qtd do QC × SIENGE</td><td class="mc mok">✔</td></tr><tr><td class="itn">9. Cronograma anexado</td><td class="mc mna">N/A</td></tr><tr><td class="itn">10. Projeto (quando necessário)</td><td class="mc mok">✔</td></tr><tr><td class="itn">11. Prazo de SLA</td><td class="mc mok">✔</td></tr></tbody></table></div>
+<div class="meta"><b>Apropriação:</b> 02.001.001.001 – Terraplanagem (mob., limpeza, corte e aterro)<br><b>Verba:</b> A definir (Custo por Nível não gerado)<br><b>Responsável:</b> Bruno de Lucas Ferreira Leite · <b>Entrega:</b> 01/09/2026</div></div>
+</div></div></td></tr>
+<tr class="rowsc" data-sc="1399075" data-st="pend" data-tp="serv" data-fa="1" data-resp="bruno-de-lucas-ferreira-leite" data-text="1399075 estaca helice fundacao servico fase 1 mobilizacao apropriacao bruno" onclick="toggle(this)">
+<td class="exp">+</td><td class="sc">1399075</td><td><span class="fase">F1</span></td>
+<td>Fundações — perfuração de estacas hélice contínua Ø30/40/50/60 cm (estrutura pré-moldada, setores 1–4).</td><td class="ctr"><span class="tag serv">Serviço</span></td>
+<td class="ctr"><span class="st pend">AJUSTAR</span></td><td class="det">Confirmar o código da apropriação da mobilização (16140).</td></tr>
+<tr class="drow hide" data-for="1399075"><td colspan="7"><div class="detail"><div class="grid2">
+<div><h3>Ajustes para a obra</h3><ol class="aj"><li>Confirmar/alinhar o código da <b>mobilização/desmobilização</b> (16140): a SC usa <b>01.001.001.005</b> e o QC/memorial usam <b>01.001.001.003</b> — acertar conforme a linha vigente no Custo por Nível.</li></ol><h3 class="mt">Já está ok</h3><ul class="good"><li>Metros das estacas conferem exato com o projeto nos 4 setores: D30 431 · D40 1650 · D50 1519 · D60 1702 m (nº de estacas × comprimento, incl. prova de carga).</li><li>Estacas apropriadas por diâmetro: 01.000.001.002 (D30) · .003 (D40) · .004 (D50) · .005 (D60) — confirmado no QC.</li><li>Descrição, unidade (m), escopo e QC batem com a SC; projeto aberto e confrontado (ST1–ST4).</li></ul></div>
+<div><h3>Matriz dos itens</h3><div class="mtx"><table><tbody><tr><td class="itn">1. SC c/ códigos novos</td><td class="mc mok">✔</td></tr><tr><td class="itn">2. Descrição dos insumos</td><td class="mc mok">✔</td></tr><tr><td class="itn">3. Qtd e unidade</td><td class="mc mok">✔</td></tr><tr><td class="itn">4. Apropriações corretas</td><td class="mc mno">X</td></tr><tr><td class="itn">5. Levantamento</td><td class="mc mok">✔</td></tr><tr><td class="itn">6. Escopo detalhado</td><td class="mc mok">✔</td></tr><tr><td class="itn">7. QC × custo por nível</td><td class="mc mna">N/A</td></tr><tr><td class="itn">8. Qtd do QC × SIENGE</td><td class="mc mok">✔</td></tr><tr><td class="itn">9. Cronograma anexado</td><td class="mc mna">N/A</td></tr><tr><td class="itn">10. Projeto (quando necessário)</td><td class="mc mok">✔</td></tr><tr><td class="itn">11. Prazo de SLA</td><td class="mc mok">✔</td></tr></tbody></table></div>
+<div class="meta"><b>Apropriação:</b> Estacas 01.000.001.002/003/004/005 · Mobilização: 01.001.001.003 (QC/mem.) × 01.001.001.005 (SC)<br><b>Verba:</b> A definir (Custo por Nível não gerado)<br><b>Responsável:</b> Bruno de Lucas Ferreira Leite · <b>Entrega:</b> 14/09/2026</div></div>
+</div></div></td></tr>
+<tr class="rowsc" data-sc="1399123" data-st="apr" data-tp="serv" data-fa="1" data-resp="bruno-de-lucas-ferreira-leite" data-text="1399123 topografia acompanhamento servico fase 1 apropriacao 01.001.001.001 mes bruno" onclick="toggle(this)">
+<td class="exp">+</td><td class="sc">1399123</td><td><span class="fase">F1</span></td>
+<td>Topografia — acompanhamento e apoio de serviços topográficos (5 meses).</td><td class="ctr"><span class="tag serv">Serviço</span></td>
+<td class="ctr"><span class="st apr">APROVADA</span></td><td class="det">Aprovada — apropriação e quantidade conferem.</td></tr>
+<tr class="drow hide" data-for="1399123"><td colspan="7"><div class="detail"><div class="grid2">
+<div><div class="aprbox">✔ SC aprovada — sem ajustes.</div><h3 class="mt">Já está ok</h3><ul class="good"><li>Apropriação 01.001.001.001 (Serviços Topográficos / Locação da Obra) — SC, memorial e QC batem.</li><li>Quantidade 5 meses confere (SC × escopo × QC); memorial reparte por frente: terraplanagem 2 + fundações 2 + obra geral 1.</li><li>Descrição e unidade (mês) equalizadas; projeto/mapa de referência anexado.</li></ul></div>
+<div><h3>Matriz dos itens</h3><div class="mtx"><table><tbody><tr><td class="itn">1. SC c/ códigos novos</td><td class="mc mok">✔</td></tr><tr><td class="itn">2. Descrição dos insumos</td><td class="mc mok">✔</td></tr><tr><td class="itn">3. Qtd e unidade</td><td class="mc mok">✔</td></tr><tr><td class="itn">4. Apropriações corretas</td><td class="mc mok">✔</td></tr><tr><td class="itn">5. Levantamento</td><td class="mc mok">✔</td></tr><tr><td class="itn">6. Escopo detalhado</td><td class="mc mok">✔</td></tr><tr><td class="itn">7. QC × custo por nível</td><td class="mc mna">N/A</td></tr><tr><td class="itn">8. Qtd do QC × SIENGE</td><td class="mc mok">✔</td></tr><tr><td class="itn">9. Cronograma anexado</td><td class="mc mna">N/A</td></tr><tr><td class="itn">10. Projeto (quando necessário)</td><td class="mc mok">✔</td></tr><tr><td class="itn">11. Prazo de SLA</td><td class="mc mok">✔</td></tr></tbody></table></div>
+<div class="meta"><b>Apropriação:</b> 01.001.001.001 – Serviços Topográficos (Locação da Obra)<br><b>Verba:</b> A definir (Custo por Nível não gerado)<br><b>Responsável:</b> Bruno de Lucas Ferreira Leite · <b>Entrega:</b> 14/09/2026</div></div>
+</div></div></td></tr>
+<tr class="rowsc" data-sc="1399174" data-st="pend" data-tp="serv" data-fa="1" data-resp="bruno-de-lucas-ferreira-leite" data-text="1399174 controle tecnologico solo servico fase 1 apropriacao 01.001.001.002 mes un bruno" onclick="toggle(this)">
+<td class="exp">+</td><td class="sc">1399174</td><td><span class="fase">F1</span></td>
+<td>Controle tecnológico do solo — camadas de aterro (terraplanagem) e base/sub-base (pavimentação), 4 meses.</td><td class="ctr"><span class="tag serv">Serviço</span></td>
+<td class="ctr"><span class="st pend">AJUSTAR</span></td><td class="det">Corrigir a unidade (un → mês).</td></tr>
+<tr class="drow hide" data-for="1399174"><td colspan="7"><div class="detail"><div class="grid2">
+<div><h3>Ajustes para a obra</h3><ol class="aj"><li>Corrigir a <b>unidade</b> da SC (15858) de <b>un</b> para <b>mês</b> — o memorial, o escopo e o QC trazem 4 <b>meses</b>.</li></ol><h3 class="mt">Já está ok</h3><ul class="good"><li>Apropriação 01.001.001.002 (Controle Tecnológico do Solo) — SC, memorial e QC batem.</li><li>Quantidade 4 confere (SC × escopo × QC); memorial reparte: terraplanagem 2 + pavimentação 2 meses.</li><li>Descrição equalizada.</li></ul></div>
+<div><h3>Matriz dos itens</h3><div class="mtx"><table><tbody><tr><td class="itn">1. SC c/ códigos novos</td><td class="mc mok">✔</td></tr><tr><td class="itn">2. Descrição dos insumos</td><td class="mc mok">✔</td></tr><tr><td class="itn">3. Qtd e unidade</td><td class="mc mno">X</td></tr><tr><td class="itn">4. Apropriações corretas</td><td class="mc mok">✔</td></tr><tr><td class="itn">5. Levantamento</td><td class="mc mok">✔</td></tr><tr><td class="itn">6. Escopo detalhado</td><td class="mc mok">✔</td></tr><tr><td class="itn">7. QC × custo por nível</td><td class="mc mna">N/A</td></tr><tr><td class="itn">8. Qtd do QC × SIENGE</td><td class="mc mno">X</td></tr><tr><td class="itn">9. Cronograma anexado</td><td class="mc mna">N/A</td></tr><tr><td class="itn">10. Projeto (quando necessário)</td><td class="mc mna">N/A</td></tr><tr><td class="itn">11. Prazo de SLA</td><td class="mc mok">✔</td></tr></tbody></table></div>
+<div class="meta"><b>Apropriação:</b> 01.001.001.002 – Controle Tecnológico do Solo<br><b>Verba:</b> A definir (Custo por Nível não gerado)<br><b>Responsável:</b> Bruno de Lucas Ferreira Leite · <b>Entrega:</b> 14/09/2026</div></div>
+</div></div></td></tr>
+<tr class="rowsc" data-sc="1399175" data-st="apr" data-tp="serv" data-fa="1" data-resp="bruno-de-lucas-ferreira-leite" data-text="1399175 controle tecnologico concreto servico fase 1 apropriacao 01.001.001.001 mes bruno" onclick="toggle(this)">
+<td class="exp">+</td><td class="sc">1399175</td><td><span class="fase">F1</span></td>
+<td>Controle tecnológico do concreto (mensal) — 6 meses.</td><td class="ctr"><span class="tag serv">Serviço</span></td>
+<td class="ctr"><span class="st apr">APROVADA</span></td><td class="det">Aprovada — apropriação, quantidade e unidade conferem.</td></tr>
+<tr class="drow hide" data-for="1399175"><td colspan="7"><div class="detail"><div class="grid2">
+<div><div class="aprbox">✔ SC aprovada — sem ajustes.</div><h3 class="mt">Já está ok</h3><ul class="good"><li>Apropriação 01.001.001.001 (Controle Tecnológico do Concreto, UC 1) — SC, memorial e QC batem.</li><li>Quantidade 6 meses e unidade (mês) conferem em SC × escopo × QC.</li><li>Memorial embasa (apoio a estacas de fundações, blocos e estrutura).</li></ul></div>
+<div><h3>Matriz dos itens</h3><div class="mtx"><table><tbody><tr><td class="itn">1. SC c/ códigos novos</td><td class="mc mok">✔</td></tr><tr><td class="itn">2. Descrição dos insumos</td><td class="mc mok">✔</td></tr><tr><td class="itn">3. Qtd e unidade</td><td class="mc mok">✔</td></tr><tr><td class="itn">4. Apropriações corretas</td><td class="mc mok">✔</td></tr><tr><td class="itn">5. Levantamento</td><td class="mc mok">✔</td></tr><tr><td class="itn">6. Escopo detalhado</td><td class="mc mok">✔</td></tr><tr><td class="itn">7. QC × custo por nível</td><td class="mc mna">N/A</td></tr><tr><td class="itn">8. Qtd do QC × SIENGE</td><td class="mc mok">✔</td></tr><tr><td class="itn">9. Cronograma anexado</td><td class="mc mna">N/A</td></tr><tr><td class="itn">10. Projeto (quando necessário)</td><td class="mc mna">N/A</td></tr><tr><td class="itn">11. Prazo de SLA</td><td class="mc mok">✔</td></tr></tbody></table></div>
+<div class="meta"><b>Apropriação:</b> 01.001.001.001 – Controle Tecnológico do Concreto (UC 1)<br><b>Verba:</b> A definir (Custo por Nível não gerado)<br><b>Responsável:</b> Bruno de Lucas Ferreira Leite · <b>Entrega:</b> 01/10/2026</div></div>
+</div></div></td></tr>
+</tbody></table>
+<div class="nodata hide" id="nodata">Nenhuma SC encontrada com esses filtros.</div></div>
+
+<div class="foot">Painel atualizado a cada SC analisada. Custo por Nível é snapshot diário (verba = orçado − comprometido); snapshot não gerado (obra nova). Custo/cotação de fornecedores é de Suprimentos e não entra na análise.</div>
+</div>
+<script>
+var fSt='all', fTp='all', fFa='all', fRp='all';
+function pick(el){var f=el.getAttribute('data-f'),v=el.getAttribute('data-v');
+ document.querySelectorAll('.chip[data-f="'+f+'"]').forEach(function(c){c.classList.remove('on');});
+ el.classList.add('on'); if(f==='st'){fSt=v;}else if(f==='tp'){fTp=v;}else if(f==='fa'){fFa=v;}else{fRp=v;} applyF();}
+function toggle(row){var sc=row.getAttribute('data-sc');var d=document.querySelector('.drow[data-for="'+sc+'"]');
+ if(!d)return; var open=d.classList.toggle('hide')===false; row.querySelector('.exp').textContent=open?'−':'+';}
+function applyF(){var q=document.getElementById('q').value.toLowerCase().trim();
+ var rows=[].slice.call(document.querySelectorAll('tr.rowsc'));var total=0;
+ rows.forEach(function(r){var okS=(fSt==='all')||(r.getAttribute('data-st')===fSt);
+  var okT=(fTp==='all')||(r.getAttribute('data-tp')===fTp);var okF=(fFa==='all')||(r.getAttribute('data-fa')===fFa);
+  var okR=(fRp==='all')||(r.getAttribute('data-resp')===fRp);
+  var okQ=(q==='')||(r.getAttribute('data-text').indexOf(q)>=0);var show=okS&&okT&&okF&&okR&&okQ;
+  r.classList.toggle('hide',!show);var d=document.querySelector('.drow[data-for="'+r.getAttribute('data-sc')+'"]');
+  if(!show){if(d)d.classList.add('hide');r.querySelector('.exp').textContent='+';} if(show)total++;});
+ document.getElementById('nodata').classList.toggle('hide',total>0);
+ document.getElementById('cnt').innerHTML=total===0?'Nenhum resultado':'Mostrando <b>'+total+'</b> SC(s)';}
+applyF();
+</script>
+</body></html>
